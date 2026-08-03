@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Estilo Instagram</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .instagram-table-container {
+            background: #ffffff;
+            border: 1px solid #dbdbdb;
+            border-radius: 8px;
+            width: 400px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .instagram-header {
+            padding: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 1px solid #efefef;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .instagram-header svg {
+            width: 20px;
+            height: 20px;
+            fill: #ed4956;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 14px;
+            border-bottom: 1px solid #efefef;
+        }
+        th {
+            background-color: #fafafa;
+            color: #8e8e8e;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover {
+            background-color: #fafafa;
+        }
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #262626;
+        }
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .likes-cell {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #262626;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+            width: fit-content;
+        }
+        .likes-cell svg {
+            width: 18px;
+            height: 18px;
+            fill: #262626;
+            transition: transform 0.2s ease, fill 0.2s ease;
+        }
+        /* Estado curtido */
+        .likes-cell.liked svg {
+            fill: #ed4956;
+            transform: scale(1.1);
+        }
+        .likes-cell.liked {
+            color: #ed4956;
+        }
+    </style>
+</head>
+<body>
+
+<div class="instagram-table-container">
+    <div class="instagram-header">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Ranking de Curtidas
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Curtidas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar">GS</div>
+                        @gabriel.silva
+                    </div>
+                </td>
+                <td>
+                    <div class="likes-cell" onclick="toggleLike(this)" data-likes="1248">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="count">1.248</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar">MC</div>
+                        @mariana.costa
+                    </div>
+                </td>
+                <td>
+                    <div class="likes-cell" onclick="toggleLike(this)" data-likes="3890">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="count">3.890</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar">LO</div>
+                        @lucas.oliveira
+                    </div>
+                </td>
+                <td>
+                    <div class="likes-cell" onclick="toggleLike(this)" data-likes="756">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="count">756</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar">BL</div>
+                        @beatriz.lima
+                    </div>
+                </td>
+                <td>
+                    <div class="likes-cell" onclick="toggleLike(this)" data-likes="5412">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="count">5.412</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar">RS</div>
+                        @rafael.souza
+                    </div>
+                </td>
+                <td>
+                    <div class="likes-cell" onclick="toggleLike(this)" data-likes="920">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        <span class="count">920</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function toggleLike(element) {
+        const countSpan = element.querySelector('.count');
+        let currentLikes = parseInt(element.getAttribute('data-likes'));
+        const isLiked = element.classList.toggle('liked');
+
+        if (isLiked) {
+            currentLikes += 1;
+        } else {
+            currentLikes -= 1;
+        }
+
+        element.setAttribute('data-likes', currentLikes);
+        
+        // Formata o número com ponto para milhares (ex: 1.249)
+        countSpan.textContent = currentLikes.toLocaleString('pt-BR');
+    }
+</script>
+
+</body>
+</html>
