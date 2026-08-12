@@ -1,6 +1,6 @@
-const inputUpload = document.getElementById('meu-upload')
+const inputUpload = document.getElementById('avatar')
 
-inputUpload.addEventListener('change', function (evento){
+inputUpload.addEventListener('change', function(evento) {
 
     const arquivo = evento.target.files[0]
 
@@ -11,3 +11,11 @@ inputUpload.addEventListener('change', function (evento){
         console.log("Nenhum arquivo selecionado.");
     }
 });
+
+const nome = document.getElementById("Nome")
+
+const b = document.getElementById("btn")
+
+b.addEventListener("click", () => {
+    console.log(nome.value)
+})

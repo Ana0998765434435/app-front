@@ -157,9 +157,10 @@
 <!-- Formulário para Adicionar Usuários -->
 <div class="add-user-form">
     <h3>Adicionar Novo Usuário</h3>
-    <input type="text" id="usernameInput" placeholder="Nome de usuário (ex: @fulano)">
+    <input type="file" id="avatar" accept="image/*">
+    <input type="text" id="Nome" placeholder="Nome de usuário (ex: @fulano)">
     <input type="number" id="likesInput" placeholder="Curtidas iniciais (ex: 500)">
-    <button onclick="addUser()">Adicionar à Tabela</button>
+    <button id="btn">Adicionar à Tabela</button>
 </div>
 
 <div class="instagram-table-container">
@@ -248,6 +249,8 @@
         </tbody>
     </table>
 </div>
+
+<script src="./script.js"></script>
 
 </body>
 </html>
