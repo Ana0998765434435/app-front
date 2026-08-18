@@ -8,7 +8,7 @@ inputUpload.addEventListener('change', function (evento) {
     const arquivo = evento.target.files[0]
 
     if (arquivo) {
-        const nomeDaImagem = arquivo.name
+        url_imagem = arquivo.name
     } else {
         console.log("Nenhum arquivo selecionado.");
     }
@@ -25,13 +25,15 @@ b.addEventListener("click", () => {
 
 async function criarUsuario() {
 
-    const novoUsuario = { "nome": nome, "url": url_imagem };
+    console.log(nome+" "+url_imagem)
+
+    const novoUsuario = { "nome": nome, "url_imagem": url_imagem };
 
     const resposta = await fetch("http://localhost:3000/alunos", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(novo)
+        body: JSON.stringify(novoUsuario)
     })
 }
