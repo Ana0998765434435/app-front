@@ -1,34 +1,37 @@
+var url_imagem = ""
+var nome = ""
+
 const inputUpload = document.getElementById('avatar')
 
-inputUpload.addEventListener('change', function(evento) {
+inputUpload.addEventListener('change', function (evento) {
 
     const arquivo = evento.target.files[0]
 
     if (arquivo) {
         const nomeDaImagem = arquivo.name
-        console.log(nomeDaImagem)
     } else {
         console.log("Nenhum arquivo selecionado.");
     }
 });
 
-const nome = document.getElementById("Nome")
+const inputNome = document.getElementById("nome")
 
 const b = document.getElementById("btn")
-
 b.addEventListener("click", () => {
-    console.log(nome.value)
+    nome = inputNome.value
+    criarUsuario()
+
 })
 
-async function criarUsuario (){
-    const novoUsuario = { nome: 'Ana', idade: 25};
+async function criarUsuario() {
 
-    const resposta = await fetch ('https://exemplo', {
-      method:'POST',
-      headers:}
-        'Content-Type': 'applicatcation/json'
-    )},
-     body: JSON.stringitfy(novoUsuario) {
-    };
-    const resultado = await reposta.json
-    console.log('Criado com sucesso:', resultado);
+    const novoUsuario = { "nome": nome, "url": url_imagem };
+
+    const resposta = await fetch("http://localhost:3000/alunos", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novo)
+    })
+}
